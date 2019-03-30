@@ -68,8 +68,9 @@ let jQuery = window['$'];
     BrowserModule, 
     FormsModule, 
     ReactiveFormsModule, 
-    UserModule,
-    RouterModule.forRoot(appRoutes)],
+    // UserModule,
+    RouterModule.forRoot(appRoutes)
+  ],
   bootstrap: [EventsAppComponent]
 })
 export class AppModule {}
