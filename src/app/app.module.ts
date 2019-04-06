@@ -12,6 +12,7 @@ import {
   CreateSessionComponent,
   SessionListComponent,
   UpvoteComponent,
+  LocationValidator,
   DurationPipe,
   VoterService
 } from "./events/index";
@@ -32,7 +33,6 @@ import { appRoutes } from "./routes";
 import { Error404Component } from "./errors/404.component";
 import { AuthService } from "./user/auth.services";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { UserModule } from "./user/user.module";
 
 let toastr: Toastr = window['toastr'];
 let jQuery = window['$'];
@@ -52,7 +52,8 @@ let jQuery = window['$'];
     SimpleModalComponent,
     UpvoteComponent,
     DurationPipe,
-    ModalTriggerDirective
+    ModalTriggerDirective,
+    LocationValidator
   ],
   providers: [
     EventService,
