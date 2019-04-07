@@ -1,5 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
+import { HttpClientModule } from '@angular/common/http';
 
 import {
   EventsListComponent,
@@ -70,7 +71,8 @@ let jQuery = window['$'];
     FormsModule, 
     ReactiveFormsModule, 
     // UserModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule
   ],
   bootstrap: [EventsAppComponent]
 })
