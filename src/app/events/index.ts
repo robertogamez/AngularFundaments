@@ -4,3 +4,4 @@ export * from './events-list-resolver.services';
 export * from './events-list.component';
 export * from './shared/index';
 export * from './event-details/index';
+export * from './event-resolver.service';
