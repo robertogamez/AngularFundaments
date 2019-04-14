@@ -37,7 +37,7 @@ export class EventService {
   saveEvent(event) {
     let options = {
       headers: new HttpHeaders({
-        'Content-Type': 'application7json'
+        'Content-Type': 'application/json'
       })
     };
 
