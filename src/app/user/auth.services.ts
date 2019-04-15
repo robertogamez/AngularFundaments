@@ -27,7 +27,7 @@ export class AuthService {
             })
         };
 
-        return this.http.post('/api/login', loginInfo)
+        return this.http.post('/api/login', loginInfo, options)
             .pipe(
                 tap(data => {
                     this.currentUser = <IUser>data['user']
@@ -43,9 +43,41 @@ export class AuthService {
     updateCurrentUser(firstName: string, lastName: string){
         this.currentUser.firstName = firstName;
         this.currentUser.lastName = lastName;
+
+        let options = {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json'
+            })
+        };
+
+        return this.http.put(`/api/users/${this.currentUser.id}`, this.currentUser, options);
+
+    }
+
+    checkAuthenticationStatus(){
+        this.http.get('/api/currentIdentity')
+            .pipe(
+                tap(data => {
+                    if(data instanceof Object) {
+                        this.currentUser = <IUser>data;
+                    }
+                })
+            ).subscribe();
     }
 
     isAuthenticated(){
         return !!this.currentUser;
+    }
+
+    logout(){
+        this.currentUser = undefined;
+
+        let options = {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json'
+            })
+        };
+
+        return this.http.post('/api/logout', {}, options);
     }
 }
